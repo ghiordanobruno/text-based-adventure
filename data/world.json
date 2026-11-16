@@ -1,0 +1,194 @@
+{
+  "start": "village_square",
+  "player": {
+    "max_hp": 100,
+    "attack": 10,
+    "defense": 0,
+    "gold": 100,
+    "equipment": {
+      "weapon": "toy_sword",
+      "shield": "cardboard_buckler",
+      "armor": "fur_vest"
+    }
+  },
+  "progression": {
+    "xp_to_level": [30, 80, 150, 250, 400],
+    "max_hp": 15,
+    "attack": 2,
+    "defense": 1
+  },
+  "endings": {
+    "victory": "Com um último golpe, a Mula sem Cabeça se desfaz em faíscas e o sertão finalmente respira. A vila está a salvo, e a sua lenda começa hoje!\n\n=== FIM: VITÓRIA ===",
+    "defeat": "Suas forças se esvaem e tudo escurece. A aventura termina aqui.\nCarregue seu último save para tentar de novo.\n\n=== FIM: DERROTA ==="
+  },
+  "items": {
+    "old_key": { "name": "Chave Velha" },
+    "life_potion": { "name": "Poção de Vida", "heal": 100, "price": 50 },
+    "cassava": { "name": "Mandioca", "heal": 50, "price": 25 },
+    "wood": { "name": "Madeira", "material": true },
+    "copper": { "name": "Cobre", "material": true },
+    "toy_sword": { "name": "Espada de Brinquedo", "slot": "weapon", "attack": 1 },
+    "cardboard_buckler": {
+      "name": "Broquel de Papelão",
+      "slot": "shield",
+      "defense": 1
+    },
+    "fur_vest": { "name": "Gibão de Peles", "slot": "armor", "defense": 1 },
+    "wooden_sword": { "name": "Espada de Madeira", "slot": "weapon", "attack": 5 },
+    "wooden_buckler": {
+      "name": "Broquel de Madeira",
+      "slot": "shield",
+      "defense": 5
+    },
+    "wooden_armor": {
+      "name": "Armadura de Madeira",
+      "slot": "armor",
+      "defense": 5
+    },
+    "copper_sword": { "name": "Espada de Cobre", "slot": "weapon", "attack": 10 },
+    "copper_buckler": {
+      "name": "Broquel de Cobre",
+      "slot": "shield",
+      "defense": 10
+    },
+    "copper_armor": {
+      "name": "Armadura de Cobre",
+      "slot": "armor",
+      "defense": 10
+    }
+  },
+  "recipes": {
+    "wooden_sword": { "wood": 6 },
+    "wooden_buckler": { "wood": 10 },
+    "wooden_armor": { "wood": 10 },
+    "copper_sword": { "wood": 2, "copper": 6 },
+    "copper_buckler": { "wood": 5, "copper": 8 },
+    "copper_armor": { "wood": 6, "copper": 10 }
+  },
+  "monsters": {
+    "skeleton": {
+      "name": "Esqueleto",
+      "max_hp": 22,
+      "attack": 6,
+      "defense": 0,
+      "xp": 15,
+      "gold": 20
+    },
+    "goblin": {
+      "name": "Goblin",
+      "max_hp": 38,
+      "attack": 7,
+      "defense": 1,
+      "xp": 25,
+      "gold": 30
+    },
+    "bixo_papao": {
+      "name": "Bixo Papão",
+      "max_hp": 99,
+      "attack": 14,
+      "defense": 6,
+      "xp": 60,
+      "gold": 80
+    },
+    "scorpion": {
+      "name": "Escorpião",
+      "max_hp": 94,
+      "attack": 13,
+      "defense": 8,
+      "xp": 50,
+      "gold": 50
+    },
+    "warrior_skeleton": {
+      "name": "Esqueleto Guerreiro",
+      "max_hp": 122,
+      "attack": 17,
+      "defense": 10,
+      "xp": 70,
+      "gold": 70
+    },
+    "headless_mule": {
+      "name": "Mula sem Cabeça",
+      "max_hp": 189,
+      "attack": 25,
+      "defense": 10,
+      "xp": 120,
+      "gold": 150,
+      "final": true
+    }
+  },
+  "rooms": {
+    "village_square": {
+      "name": "Praça da Vila",
+      "description": "Uma praça de terra batida com um poço no centro. Crianças correm atrás de uma galinha e o cheiro de mandioca frita vem de longe.",
+      "exits": { "north": "forest_path", "east": "shop" },
+      "safe": true
+    },
+    "shop": {
+      "name": "Loja do Dr. Fernando Beterraba",
+      "description": "Prateleiras tortas guardam poções e mandiocas. Atrás do balcão, um senhor de jaleco manchado de beterraba te examina com desconfiança.",
+      "exits": { "west": "village_square" },
+      "safe": true,
+      "sells": ["life_potion", "cassava"]
+    },
+    "forest_path": {
+      "name": "Trilha da Floresta",
+      "description": "Uma trilha estreita entre árvores altas e retas, boas para cortar. Ao longe, algo assobia entre as folhas.",
+      "exits": {
+        "south": "village_square",
+        "north": "clearing",
+        "east": "old_mill"
+      },
+      "monster": "skeleton",
+      "gather": { "chop": { "item": "wood", "amount": 3, "uses": 15 } }
+    },
+    "old_mill": {
+      "name": "Moinho Abandonado",
+      "description": "A roda do moinho está parada e coberta de limo. Sacos rasgados e teias de aranha enchem o salão.",
+      "exits": { "west": "forest_path" },
+      "items": ["old_key"]
+    },
+    "clearing": {
+      "name": "Clareira dos Vaga-lumes",
+      "description": "Uma clareira aberta onde vaga-lumes desenham pontos de luz no ar. Ao norte, a boca escura de uma caverna.",
+      "exits": { "south": "forest_path", "north": "cave_entrance" },
+      "monster": "goblin"
+    },
+    "cave_entrance": {
+      "name": "Entrada da Caverna",
+      "description": "O ar frio sopra da escuridão. Marcas de garras riscam as paredes de pedra e, mais adiante, uma grade de ferro enferrujada bloqueia a passagem.",
+      "exits": { "south": "clearing", "north": "boss_lair" },
+      "locks": { "north": "old_key" }
+    },
+    "boss_lair": {
+      "name": "Covil do Bixo Papão",
+      "description": "Um salão enorme, cheio de ossos e sombras que se mexem sozinhas. Ao norte, uma fresta de luz quente anuncia a saída da caverna.",
+      "exits": { "south": "cave_entrance", "north": "desert_camp" },
+      "monster": "bixo_papao"
+    },
+    "desert_camp": {
+      "name": "Acampamento do Sertão",
+      "description": "Uma fogueira tímida crepita entre tendas rasgadas. Veios avermelhados de cobre brilham nas rochas ao redor. Do outro lado do vale, o sertão se estende, seco e silencioso. Aqui parece seguro.",
+      "exits": { "south": "boss_lair", "north": "dunes" },
+      "safe": true,
+      "gather": { "mine": { "item": "copper", "amount": 3, "uses": 9 } }
+    },
+    "dunes": {
+      "name": "Dunas Escaldantes",
+      "description": "O calor faz o ar tremer sobre a areia. Rastros finos de algo com muitas patas cruzam o caminho.",
+      "exits": { "south": "desert_camp", "north": "ruins" },
+      "monster": "scorpion"
+    },
+    "ruins": {
+      "name": "Ruínas Esquecidas",
+      "description": "Colunas quebradas e arcos de pedra sobrevivem ao vento. Ossos se arrastam entre as sombras. Mais ao norte, um clarão alaranjado ilumina o céu.",
+      "exits": { "south": "dunes", "north": "mule_clearing" },
+      "monster": "warrior_skeleton"
+    },
+    "mule_clearing": {
+      "name": "Clareira das Chamas",
+      "description": "O chão queima em brasas e o ar cheira a enxofre. Uma silhueta de fogo, sem cabeça, bate os cascos e relincha.",
+      "exits": { "south": "ruins" },
+      "monster": "headless_mule"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+# Winning route for data/world.json (SPOILERS), one command per line.
+# FIGHT   = attack until the fight ends, drinking a healing item when life is low.
+# @gear   = a gathering/crafting/equipping line; the simulator skips these when
+#           asked to play without equipment (--sem-equipamento).
+# Used by `python -m adventure.simulate` and by tests/test_playthrough.py.
+# If you change rooms, monsters or recipes in world.json, update this file too.
+
+# Shop: buy two life potions, then back to the square
+l
+comprar pocao de vida 2
+o
+
+# Forest path: skeleton, then chop wood and craft the wooden set
+n
+FIGHT
+@gear cortar 15
+@gear fabricar espada de madeira
+@gear fabricar broquel de madeira
+@gear fabricar armadura de madeira
+
+# Old mill: the key
+l
+pegar chave
+o
+
+# Clearing: goblin; cave entrance: open the iron grate
+n
+FIGHT
+n
+usar chave
+
+# Rest in the village before the first boss
+s
+s
+s
+descansar
+
+# Cave lair: Bixo Papão; then the desert camp (safe): mine copper, craft the copper set
+n
+n
+n
+n
+FIGHT
+n
+descansar
+@gear minerar 9
+@gear fabricar espada de cobre
+@gear fabricar broquel de cobre
+@gear fabricar armadura de cobre
+
+# Dunes: scorpion; ruins: warrior skeleton
+n
+FIGHT
+n
+FIGHT
+
+# Back to the camp to rest, then the final boss
+s
+s
+descansar
+n
+n
+n
+FIGHT

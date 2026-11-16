@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+
+# Player save files (one JSON per character)
+saves/
+
+# Claude Code configuration (local to this machine, not part of the project)
+.claude/
+CLAUDE.md
